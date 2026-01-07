@@ -2,7 +2,10 @@ import {Router} from 'express'
 import { prisma } from '../lib/prisma'
 import { projects } from '../helpers/projects.helper'
 
-
+interface ProjectBody {
+  title: string;
+  description: string;
+}
 const router = Router()
 
 router.get('/', (req, res) => {
@@ -18,7 +21,7 @@ router.get('/projects-with-tasks', async (req, res) => {
   res.json(projects);
 });
 
-router.post('/', async (req, res) => {
+router.post<{}, any, ProjectBody>('/', async (req, res) => {
   const { title, description } = req.body;
   const project = await prisma.project.create({
     data: { title, description },

@@ -2,11 +2,12 @@
   "name": "yes",
   "version": "yes",
   "main": "yes",
+  "type": "module",
   "repository": "https://github.com/uelski/task-server.git",
   "author": "<sam.vburgh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
@@ -23,6 +24,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "prisma": "^7.2.0"
+    "prisma": "^7.2.0",
+    "tsx": "^4.21.0"
   }
 }
